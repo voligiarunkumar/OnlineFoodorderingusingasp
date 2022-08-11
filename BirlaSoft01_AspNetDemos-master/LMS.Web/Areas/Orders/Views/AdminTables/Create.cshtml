@@ -1,0 +1,38 @@
+﻿@model FoodOrdering.Web.Models.AdminTable
+
+@{
+    ViewData["Title"] = "Create Admin Details";
+}
+<div class="p-3 mb-2 bg-info text-white">
+<center><h1>@ViewData["Title"]</h1></center>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AdminName" class="control-label">Create Admin UserName</label>
+                <input asp-for="AdminName" class="form-control" />
+                <span asp-validation-for="AdminName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Create Admin Password</label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="submit" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<div>
+    <a class="btn btn-light" asp-area="" asp-page="/Index">Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

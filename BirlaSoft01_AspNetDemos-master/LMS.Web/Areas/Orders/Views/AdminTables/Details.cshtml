@@ -1,0 +1,32 @@
+﻿@model FoodOrdering.Web.Models.AdminTable
+
+@{
+    ViewData["Title"] = "Details Of Admin Information";
+}
+<div class="p-3 mb-2 bg-info text-white">
+<center><h1>@ViewData["Title"]</h1></center>
+
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AdminName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AdminName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+    </dl>
+</div>
+<div>
+    
+    <a asp-action="Index" class="btn btn-light">Back to List</a>
+    <a class="btn btn-light" asp-area="" asp-page="/Index">Home</a>
+</div>
+</div>

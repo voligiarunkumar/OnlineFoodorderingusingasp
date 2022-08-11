@@ -1,0 +1,43 @@
+﻿@model IEnumerable<FoodOrdering.Web.Models.AdminTable>
+
+@{
+    ViewData["Title"] = "Details Of Admin";
+}
+<div class="p-3 mb-2 bg-info text-white">
+<center><h1>@ViewData["Title"]</h1></center>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+    <a class="btn btn-light" asp-area="" asp-page="/Index">Home</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AdminId" class="btn btn-success">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AdminId" class="btn btn-success">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AdminId" class="btn btn-success">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

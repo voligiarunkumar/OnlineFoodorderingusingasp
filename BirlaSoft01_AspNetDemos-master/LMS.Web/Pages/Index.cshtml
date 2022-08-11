@@ -1,0 +1,365 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "My Home page";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+  
+<div id="loginmodal" class="modal fade " role="dialog">
+       
+        </div>
+ </div>
+   
+  
+    <!-- HEADER CODE -->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-sm-6">
+                    <h1>Welcome to Online Food Ordering system</h1>
+                    <i>The Best online food provider </i>
+                </div>
+                <div class="col-20 col-sm-500">
+                    <img class="logo1" src="~/imgs/logo.png" height="100px" width="200px" alt="">
+                </div>
+                <div class="col-1200 col-sm-3">
+                  <a asp-area="Orders" asp-controller="Ordertables" asp-action="create" class="btn btn-success">Order Food(VEG)</a>
+                  <div class="text-danger">--------------------------</div>
+                  <div class="text-danger">--------------------------</div>
+                   <a asp-area="Orders" asp-controller="Ordertables" asp-action="create1" class="btn btn-warning">Order Food(NON-VEG)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    
+    <div class="container">    
+        <div id="mycarousel" class="carousel slide justify-content-center" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active row">
+                    <img  class="d-block img-fluid" src="imgs/food7.png">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block img-fluid" src="imgs/food7.png" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row row-content align-items-center">
+           
+
+            <div class="col-12 col-sm-9 ">
+                <div class="media">
+                    <div class="media-object col-sm-9">
+                        <h2><i>Mostly ordered food iteams</I></h2>
+                        <ul>
+                            <li><i>Chapati</i></li>
+                            <li><i>Mutton Curry</i></li>
+                            <li><i>Biryani</i></li>
+                            <li><i>Mundi Birayani</i></li>
+                          </ul>
+                    </div>
+                    <div class="col-sm-3">
+                        
+                        <ul>
+                            <li>Tiger Rice</li>
+                            <li>Fired Chiken</li>
+                            <a asp-area="Orders" asp-controller="FoodTables" asp-action="index1" class="btn btn-success">Show Menu Items </a>
+                       
+                          </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-content align-items-center">
+            <div class="col-12 col-sm-3">
+                <h1><span class="badge badge-danger">Food Delivery:---></span></h1>
+            </div>
+
+            <div class="col-12 col-sm-9 ">
+                <div class="media">
+                    <div class="media-object col-sm-9">
+                        <p><i>We are servinig from the last few Years which gives more customers, we growing around different cities for the delievey
+                            soon, we are making sure every customer satifying their needs and expectaion from us and we are looking forward for the better result.</i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+  <div class="row "> 
+  <div class="one col-lg-4 col-md-12 col-12 p-0">
+  <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="~/imgs/Biryani.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Biryani</h5>
+                     <p class="card-text">A delicuios fired pieces with butter containing soop with having spices pieces and masumathi rice.</p>
+                      <a asp-area="Orders" asp-controller="Ordertables" asp-action="create" class="btn btn-warning">Order Now </a>
+               </div>
+ </div>
+ </div>
+ <div class="one col-lg-4 col-md-12 col-12 p-0">
+ <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="~/imgs/pulihora.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">TigerRice</h5>
+                     <p class="card-text">Rice with all ingridients and tasty tiger rice with tiger masala spicy mirchi on it.</p>
+                      <a asp-area="Orders" asp-controller="Ordertables" asp-action="create" class="btn btn-warning">Order Food</a>
+               </div>
+ </div>
+ </div>
+ <div class="one col-lg-4 col-md-12 col-12 p-0">
+ <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="~/imgs/mutton.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Mutton Curry</h5>
+                     <p class="card-text">Fired piece currry with oninions fired and butter fired and spicy masals with rough mirchi on it.</p>
+                     <a asp-area="Orders" asp-controller="Ordertables" asp-action="create" class="btn btn-warning">Order Now</a>
+               </div>
+ </div>
+ </div>
+
+ </div>
+ </div>
+ <hr/>
+        <!-- FOOTER CODE -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-4">
+                    <h2>Contact Us</h2>
+                    <ul class="list-unstyled">
+                        <li>
+                           Phone:123456789
+                           
+                       </li>
+                        
+
+                    </ul>
+                </div>
+
+
+                <div class="col-12 col-sm-4">
+                    <h2>Address</h2>
+                    <p>H.NO 123/456</p>
+                    <p>Lb nagar</p>
+                    <p>INDIA</p>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <h2>E-connect</h2>
+                    <p>Mail:<a href="onlinefoodoredering.com">Onlinefoodordering@gmail.com</a></p>
+                    <p>FaceBook:<a href="onlinrfoodordering.com">onlinefood.facebook.com</a></p>
+                   
+                </div>
+               
+            </div>
+           
+        </div>
+    </footer>
+    
+   
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<html>
+<head>
+  <link rel="stylesheet" href="~/css/site.css"> 
+   
+</head>
+<body class="jumbotron big-banner" >
+ 
+<table class="table table-dark table-striped">
+    <h1 class="text-muted">
+
+    <center>ONLINE FOOD ORDERING SYSTEM</center>
+    </h1>
+    
+
+</table>
+  <hr class="mx-auto"> 
+<section id="new" class="w-100">
+  <div class="row p-0 m-0">
+    <div class="one col-lg-4 col-md-12 col-12 p-0">
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="~/imgs/Biryani.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+</div>
+<div class="one col-lg-4 col-md-12 col-12 p-0">
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="~/imgs/burger.jpg" height="330"alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+</div>
+<div class="one col-lg-4 col-md-12 col-12 p-0">
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="~/imgs/pizza.png"  height="330" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+</div>
+</div>
+
+</section>
+<section id="featured" class="my-5 py-5">
+ <div class="row p-0 m-0">
+    <div class="one col-lg-4 col-md-12 col-12 p-0">
+
+     
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="/imgs/Pulihora.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+</div>
+<div class="one col-lg-4 col-md-12 col-12 p-0">
+
+  
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="/imgs/mutton.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+</div>
+<div class="one col-lg-4 col-md-12 col-12 p-0">
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="/imgs/ukma.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+</div>
+</div>
+</section>
+
+</body>
+</html>
+
+*@

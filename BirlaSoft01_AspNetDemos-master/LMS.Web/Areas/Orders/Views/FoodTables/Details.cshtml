@@ -1,0 +1,43 @@
+﻿@model FoodOrdering.Web.Models.FoodTable
+
+@{
+    ViewData["Title"] = "Food Infromation";
+}
+<div class="p-3 mb-2 bg-info text-white">
+<center><h1>@ViewData["Title"]</h1></center>
+
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FoodId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FoodId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FoodPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FoodPrice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FoodType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FoodType)
+        </dd>
+    </dl>
+</div>
+<div>
+     
+    <a asp-action="Index" class="btn btn-success">Back to List</a>
+</div>
+</div>

@@ -1,0 +1,53 @@
+﻿@model FoodOrdering.Web.Models.CustomerTable
+
+@{
+    ViewData["Title"] = "Register As New Customer";
+}
+<div class="p-3 mb-2 bg-info text-white">
+<center><h1>@ViewData["Title"]</h1></center>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label">Create UserName</label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FistName" class="control-label">Enter FirstName</label>
+                <input asp-for="FistName" class="form-control" />
+                <span asp-validation-for="FistName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label">Enter LastName</label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerAddress" class="control-label">Enter Address</label>
+                <input asp-for="CustomerAddress" class="form-control" />
+                <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerContactNumber" class="control-label">ContactNumber</label>
+                <input asp-for="CustomerContactNumber" class="form-control" />
+                <span asp-validation-for="CustomerContactNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="submit" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<div>
+   <a class="btn btn-light" asp-area="" asp-page="/Index">Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

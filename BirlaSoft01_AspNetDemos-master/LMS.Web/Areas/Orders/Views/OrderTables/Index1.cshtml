@@ -1,0 +1,71 @@
+﻿@model IEnumerable<FoodOrdering.Web.Models.OrderTable>
+
+@{
+    ViewData["Title"] = "Customer Ordered Details";
+}
+
+
+
+<div class="p-3 mb-2 bg-info text-white">
+<center><h1>@ViewData["Title"]</h1></center>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+    <a class="btn btn-light" asp-area="" asp-page="/Index">Home</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateofOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodTable)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateofOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodTable.FoodName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.OrderID" class="btn btn-success">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.OrderID"class="btn btn-success" >Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.OrderID"class="btn btn-success">Delete </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

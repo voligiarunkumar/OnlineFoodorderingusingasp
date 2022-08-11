@@ -1,0 +1,52 @@
+﻿@model FoodOrdering.Web.Models.OrderTable
+
+@{
+    ViewData["Title"] = "Order Food";
+}
+<div class="p-3 mb-2 bg-info text-white">
+<center><h1>@ViewData["Title"]</h1></center>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label">Enter your UserName</label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoodName" class="control-label">Select FoodItem</label>
+                <select asp-for="FoodName" class ="form-control" asp-items="ViewBag.FoodName"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateofOrder" class="control-label">Choose Date</label>
+                <input asp-for="DateofOrder" class="form-control" />
+                <span asp-validation-for="DateofOrder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label">Enter Quantity</label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerAddress" class="control-label">Enter Delivery Address</label>
+                <input asp-for="CustomerAddress" class="form-control" />
+                <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              <center> <input type="submit" value="Submit" class="btn btn-success" /></center>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+<div>
+    <a class="btn btn-light" asp-area="" asp-page="/Index">Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

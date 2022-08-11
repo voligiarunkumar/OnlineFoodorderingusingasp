@@ -1,0 +1,48 @@
+﻿@model FoodOrdering.Web.Models.FoodTable
+
+@{
+    ViewData["Title"] = "Add New Food Item";
+}
+<div class="p-3 mb-2 bg-info text-white">
+<center><h1>@ViewData["Title"]</h1></center>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label">AdminUserName</label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoodName" class="control-label">Enter Food Name</label>
+                <input asp-for="FoodName" class="form-control" />
+                <span asp-validation-for="FoodName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoodPrice" class="control-label">Enter Food Price</label>
+                <input asp-for="FoodPrice" class="form-control" />
+                <span asp-validation-for="FoodPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoodType" class="control-label">Enter Veg/Non-Veg</label>
+                <input asp-for="FoodType" class="form-control" />
+                <span asp-validation-for="FoodType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<div>
+    <a class="btn btn-light" asp-area="" asp-page="/Index">Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

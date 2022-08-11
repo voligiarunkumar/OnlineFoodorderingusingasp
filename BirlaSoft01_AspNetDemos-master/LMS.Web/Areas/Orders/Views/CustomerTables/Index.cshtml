@@ -1,0 +1,61 @@
+﻿@model IEnumerable<FoodOrdering.Web.Models.CustomerTable>
+
+@{
+    ViewData["Title"] = "Customer Information";
+}
+<div class="p-3 mb-2 bg-info text-white">
+<center><h1>@ViewData["Title"]</h1></center>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+    <a class="btn btn-light" asp-area="" asp-page="/Index">Home</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FistName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerContactNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FistName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerContactNumber)
+            </td>
+            <td>
+            
+                <a asp-action="Details" asp-route-id="@item.CustomerId" class="btn btn-light">Details</a> 
+        
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
