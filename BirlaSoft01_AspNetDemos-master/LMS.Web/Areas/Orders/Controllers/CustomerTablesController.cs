@@ -61,7 +61,13 @@ namespace FoodOrdering.Web.Areas.Orders.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CustomerId,UserName,FistName,LastName,CustomerAddress,CustomerContactNumber")] CustomerTable customerTable)
         {
-            if (ModelState.IsValid)
+            bool isDuplicateFoundusername
+                  = _context.CustomersTable.Any(c => c.UserName == customerTable.UserName);
+            if (isDuplicateFoundusername)
+            {
+                ModelState.AddModelError("UserName", "UserName already present please choose another one");
+            }
+            else
             {
                 _context.Add(customerTable);
                 await _context.SaveChangesAsync();
