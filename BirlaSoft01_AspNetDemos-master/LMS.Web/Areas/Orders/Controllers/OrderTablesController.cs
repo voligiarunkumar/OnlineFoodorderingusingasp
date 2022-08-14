@@ -65,11 +65,13 @@ namespace FoodOrdering.Web.Areas.Orders.Controllers
         // GET: Orders/OrderTables/Create
         public IActionResult Create()
         {
+            //listing only veg items into the drop down list
             ViewData["FoodName"] = new SelectList(_context.FoodTables.Where(e=>e.FoodType=="veg"), "FoodName", "FoodName");
             return View();
         }
         public IActionResult Create1()
         {
+            //listing only non-veg items into the drop dowm list
             ViewData["FoodName"] = new SelectList(_context.FoodTables.Where(e => e.FoodType == "Non-veg"), "FoodName", "FoodName");
             return View();
         }
@@ -77,19 +79,31 @@ namespace FoodOrdering.Web.Areas.Orders.Controllers
         // POST: Orders/OrderTables/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        //this is for veg create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("OrderID,UserName,FoodName,DateofOrder,Quantity,CustomerAddress")] OrderTable orderTable)
         {
+            //checking wether the duplicate is found or not if found user should be able to add the order else need to register
+
             bool isDuplicateFoundusername
                     = _context.CustomersTable.Any(c => c.UserName == orderTable.UserName);
 
-
+           
             if (isDuplicateFoundusername)
             {
-                _context.Add(orderTable);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //cheking wether selected date is in the present date and future one not in the past
+                if (System.DateTime.Now.Date <= orderTable.DateofOrder.Date)
+                {
+                    _context.Add(orderTable);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    ModelState.AddModelError("DateofOrder", "Date of order should be future not past");
+                }
             }
             else{
                 ModelState.AddModelError("UserName", "UserName invalid with our database you may new to us please Register");
@@ -97,24 +111,35 @@ namespace FoodOrdering.Web.Areas.Orders.Controllers
             ViewData["FoodName"] = new SelectList(_context.FoodTables.Where(e => e.FoodType == "veg"), "FoodName", "FoodName");
             return View(orderTable);
         }
+        // this is for non-veg create1
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create1([Bind("OrderID,UserName,FoodName,DateofOrder,Quantity,CustomerAddress")] OrderTable orderTable)
         {
+            //checking wether the duplicate is found or not if found user should be able to add the order else need to register
             bool isDuplicateFoundusername
                     = _context.CustomersTable.Any(c => c.UserName == orderTable.UserName);
 
 
             if (isDuplicateFoundusername)
             {
-                _context.Add(orderTable);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //checking with the date where date should not be in the past it should be future one.
+                if (System.DateTime.Now.Date <= orderTable.DateofOrder.Date)
+                {
+                    _context.Add(orderTable);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    ModelState.AddModelError("DateofOrder", "Date of order should be future not past");
+                }
             }
             else
             {
                 ModelState.AddModelError("UserName", "UserName invalid with our database you may new to us please Register");
             }
+            //displaying to drop down list to select particular item from the list
             ViewData["FoodName"] = new SelectList(_context.FoodTables.Where(e => e.FoodType == "Non-veg"), "FoodName", "FoodName");
             return View(orderTable);
         }
@@ -122,6 +147,7 @@ namespace FoodOrdering.Web.Areas.Orders.Controllers
         // GET: Orders/OrderTables/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            //cheking whether the item is null or not and returning
             if (id == null)
             {
                 return NotFound();
@@ -132,6 +158,7 @@ namespace FoodOrdering.Web.Areas.Orders.Controllers
             {
                 return NotFound();
             }
+            //displaying to drop down list to select particular item from the list
             ViewData["FoodName"] = new SelectList(_context.FoodTables, "FoodName", "FoodName", orderTable.FoodName);
             return View(orderTable);
         }
@@ -168,6 +195,7 @@ namespace FoodOrdering.Web.Areas.Orders.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            //displaying to drop down list to select particular item from the list
             ViewData["FoodName"] = new SelectList(_context.FoodTables, "FoodName", "FoodName", orderTable.FoodName);
             return View(orderTable);
         }
@@ -194,6 +222,7 @@ namespace FoodOrdering.Web.Areas.Orders.Controllers
         // POST: Orders/OrderTables/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        //deleting with respect to the id that provided by the admin whlie clicking on the particular item to be deleted
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var orderTable = await _context.OrdersTable.FindAsync(id);

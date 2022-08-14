@@ -60,6 +60,10 @@ namespace FoodOrdering.Web.Areas.Orders.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FoodId,UserName,FoodName,FoodPrice,FoodType")] FoodTable foodTable)
         {
+
+            //cheking with the admin user name should be present and food name already present should not be entered again if both valid admin can able to add foo
+ 
+            //add food item in the food table
             bool isDuplicateFoundusername
                    = _context.AdminsTable.Any(c => c.AdminName == foodTable.UserName);
             bool isDuplicateFoundFoodName

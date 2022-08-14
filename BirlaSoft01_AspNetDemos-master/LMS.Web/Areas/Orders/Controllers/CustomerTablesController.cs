@@ -59,8 +59,10 @@ namespace FoodOrdering.Web.Areas.Orders.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        //only create and details are visible to the customer and other than that nohting will be visible to him like delete and edit
         public async Task<IActionResult> Create([Bind("CustomerId,UserName,FistName,LastName,CustomerAddress,CustomerContactNumber")] CustomerTable customerTable)
         {
+            //checking wether the entered username is already present in the table if present throughs an error saying username alereadt present
             bool isDuplicateFoundusername
                   = _context.CustomersTable.Any(c => c.UserName == customerTable.UserName);
             if (isDuplicateFoundusername)

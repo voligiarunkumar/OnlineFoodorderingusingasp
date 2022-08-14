@@ -21,6 +21,7 @@ namespace FoodOrdering.Web.Areas.Orders.Controllers
         }
 
         // GET: Orders/AdminTables
+        //admin has all rights to remove customer , edit customer details, delete customer, and manage there orders
         public async Task<IActionResult> Index()
         {
             return View(await _context.AdminsTable.ToListAsync());
